@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="false">C4LCUL4T0R</string>
+    <string name="gamemode">G4M3M0D3</string>
+    <string name="difficulty">D1FF1CULTY</string>
+    <string name="start">5T4RT</string>
+    <string name="ranking">R4NK1NG</string>
+    <string name="left_arrow" translatable="false"><![CDATA[>>]]></string>
+    <string name="right_arrow" translatable="false"><![CDATA[<<]]></string>
+</resources>

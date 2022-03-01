@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="340dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/main_titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+
+            android:text="@string/app_name"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="60sp"
+            android:typeface="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="389dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/main_gamemodeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="@string/gamemode"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="30sp"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_leftGamemodeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="?attr/colorPrimary"
+
+                    android:fontFamily="sans-serif-light"
+
+                    android:scaleX="0.7"
+                    android:text="@string/right_arrow"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="25sp"
+                    android:typeface="normal"
+                    app:cornerRadius="0sp"
+                    app:strokeColor="?attr/colorOnPrimary"
+                    app:strokeWidth="1sp"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <TextView
+                    android:id="@+id/main_gamemodeSlideTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:maxWidth="100sp"
+                    android:minWidth="100sp"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="25sp"
+                    android:typeface="normal" />
+
+                <Button
+                    android:id="@+id/main_rightGamemodeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="?attr/colorPrimary"
+
+                    android:fontFamily="sans-serif-light"
+
+                    android:scaleX="0.7"
+                    android:text="@string/left_arrow"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="25sp"
+                    android:typeface="normal"
+                    app:cornerRadius="0sp"
+                    app:strokeColor="?attr/colorOnPrimary"
+                    app:strokeWidth="1sp"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/main_dificultyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center|center_horizontal"
+                android:text="@string/difficulty"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="30sp"
+                android:typeface="normal" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_leftDifficultyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="?attr/colorPrimary"
+
+                    android:fontFamily="sans-serif-light"
+
+                    android:scaleX="0.7"
+                    android:text="@string/right_arrow"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="25sp"
+                    android:typeface="normal"
+                    app:cornerRadius="0sp"
+                    app:strokeColor="?attr/colorOnPrimary"
+                    app:strokeWidth="1sp" />
+
+                <TextView
+                    android:id="@+id/main_difficultySlideTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:maxWidth="100sp"
+                    android:minWidth="100sp"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="25sp"
+                    android:typeface="normal" />
+
+                <Button
+                    android:id="@+id/main_rightDifficultyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="?attr/colorPrimary"
+
+                    android:fontFamily="sans-serif-light"
+
+                    android:scaleX="0.7"
+                    android:text="@string/left_arrow"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="25sp"
+                    android:typeface="normal"
+                    app:cornerRadius="0sp"
+                    app:strokeColor="?attr/colorOnPrimary"
+                    app:strokeWidth="1sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/main_rankingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0"
+                android:backgroundTint="?attr/colorPrimary"
+
+                android:fontFamily="sans-serif-light"
+
+                android:scaleX="0.9"
+                android:text="@string/ranking"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="30sp"
+                android:typeface="normal"
+                app:cornerRadius="0sp"
+                app:strokeColor="?attr/colorOnPrimary"
+                app:strokeWidth="1sp" />
+
+            <Button
+                android:id="@+id/main_startButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0"
+                android:backgroundTint="?attr/colorPrimary"
+
+                android:fontFamily="sans-serif-light"
+
+                android:scaleX="0.9"
+                android:text="@string/start"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="30sp"
+                android:typeface="normal"
+                app:cornerRadius="0sp"
+                app:strokeColor="?attr/colorOnPrimary"
+                app:strokeWidth="1sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
