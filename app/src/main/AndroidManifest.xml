@@ -16,13 +16,7 @@
             android:name=".activities.RankingActivity"
             android:exported="false" />
         <activity
-            android:name=".GameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
