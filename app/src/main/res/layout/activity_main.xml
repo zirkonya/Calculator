@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="340dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
-        android:layout_height="389dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,9 +120,9 @@
                 android:id="@+id/main_dificultyTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/difficulty"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center|center_horizontal"
-                android:text="@string/difficulty"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="30sp"
                 android:typeface="normal" />
@@ -216,12 +216,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0"
+                android:text="@string/start"
+
                 android:backgroundTint="?attr/colorPrimary"
 
                 android:fontFamily="sans-serif-light"
 
                 android:scaleX="0.9"
-                android:text="@string/start"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="30sp"
                 android:typeface="normal"

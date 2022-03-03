@@ -13,6 +13,9 @@
             android:name=".activities.GameActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.game.ChronoGame"
+            android:exported="false" />
+        <activity
             android:name=".activities.RankingActivity"
             android:exported="false" />
         <activity

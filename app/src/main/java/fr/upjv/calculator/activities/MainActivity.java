@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openGameActivity() {
-        Intent intent = new Intent(this, GameActivity.class);
+        Intent intent = new Intent(this, gamemode.getGameClass());
+        intent.putExtra("difficulty", difficulty.ordinal());
         startActivity(intent);
     }
 

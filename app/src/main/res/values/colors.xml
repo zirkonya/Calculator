@@ -4,4 +4,7 @@
     <color name="dark_gray">#333</color>
     <color name="light_gray">#DDD</color>
     <color name="white">#FFF</color>
+
+    <color name="gray_5">#555</color>
+    <color name="gray_10">#AAA</color>
 </resources>
