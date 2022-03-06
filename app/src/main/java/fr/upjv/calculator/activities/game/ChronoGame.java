@@ -3,25 +3,29 @@ package fr.upjv.calculator.activities.game;
 import android.os.CountDownTimer;
 
 import fr.upjv.calculator.activities.GameActivity;
-import fr.upjv.calculator.calcul.Calcul;
+import fr.upjv.calculator.computation.Computation;
 
 public class ChronoGame extends GameActivity {
-    private CountDownTimer timer;
+    private CountDownTimer countDownTimer;
+
 
     @Override
-    public void init() {
-        Calcul calcul = generateCalcul();
-        calculTextView.setText(calcul.toString());
-        answerTextView.setText(calcul.result() + "");
-    }
-
-    @Override
-    public void game() {
+    public void onSubmit(long answer) {
 
     }
 
     @Override
-    public void end() {
+    public void onPauseGame() {
+
+    }
+
+    @Override
+    public void onStartGame() {
+
+    }
+
+    @Override
+    public void onStopGame() {
 
     }
 

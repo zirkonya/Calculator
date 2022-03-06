@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import fr.upjv.calculator.R;
 import fr.upjv.calculator.tools.Difficulty;
-import fr.upjv.calculator.tools.Gamemode;
+import fr.upjv.calculator.tools.GameMode;
 
 public class MainActivity extends AppCompatActivity {
     private Difficulty difficulty;
-    private Gamemode gamemode;
+    private GameMode gameMode;
 
     private TextView difficultyTextView;
-    private TextView gamemodeTextView;
+    private TextView gameModeTextView;
 
     private TextView title;
 
@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity {
         Button rankingButton = findViewById(R.id.main_rankingButton);
 
         Button leftDifficultyButton = findViewById(R.id.main_leftDifficultyButton);
-        Button leftGamemodeButton = findViewById(R.id.main_leftGamemodeButton);
+        Button leftGameModeButton = findViewById(R.id.main_leftGameModeButton);
         Button rightDifficultyButton = findViewById(R.id.main_rightDifficultyButton);
-        Button rightGamemodeButton = findViewById(R.id.main_rightGamemodeButton);
+        Button rightGameModeButton = findViewById(R.id.main_rightGameModeButton);
 
-        gamemodeTextView = findViewById(R.id.main_gamemodeSlideTextView);
+        gameModeTextView = findViewById(R.id.main_gameModeSlideTextView);
         difficultyTextView = findViewById(R.id.main_difficultySlideTextView);
 
         startButton.setOnClickListener(view -> openGameActivity());
         rankingButton.setOnClickListener(view -> openRankingActivity());
 
         leftDifficultyButton.setOnClickListener(view -> changeDifficulty(true));
-        leftGamemodeButton.setOnClickListener(view -> changeGamemode(true));
+        leftGameModeButton.setOnClickListener(view -> changeGamemode(true));
         rightDifficultyButton.setOnClickListener(view -> changeDifficulty(false));
-        rightGamemodeButton.setOnClickListener(view -> changeGamemode(false));
+        rightGameModeButton.setOnClickListener(view -> changeGamemode(false));
 
         difficulty = Difficulty.SIMPLE;
-        gamemode = Gamemode.CHRONO;
+        gameMode = GameMode.CHRONO;
 
         title = findViewById(R.id.main_titleTextView);
 
@@ -59,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openGameActivity() {
-        Intent intent = new Intent(this, gamemode.getGameClass());
+        Intent intent = new Intent(this, gameMode.getGameClass());
         intent.putExtra("difficulty", difficulty.ordinal());
+        intent.putExtra("gameMode", gameMode.ordinal());
+
         startActivity(intent);
     }
 
@@ -77,14 +79,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeGamemode(boolean previous) {
-        int total = Gamemode.values().length;
-        int currentOrdinal = gamemode.ordinal();
+        int total = GameMode.values().length;
+        int currentOrdinal = gameMode.ordinal();
         int nextOrdinal;
         if (previous)
             nextOrdinal = currentOrdinal == 0 ? total - 1 : currentOrdinal - 1;
         else
             nextOrdinal = currentOrdinal == total -1 ? 0 : currentOrdinal + 1;
-        gamemode = Gamemode.values()[nextOrdinal];
+        gameMode = GameMode.values()[nextOrdinal];
         updateGamemode();
     }
 
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateGamemode() {
-        gamemodeTextView.setText(gamemode.getName());
+        gameModeTextView.setText(gameMode.getName());
     }
 
 }

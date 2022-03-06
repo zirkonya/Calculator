@@ -1,6 +1,6 @@
 package fr.upjv.calculator.tools;
 
-import fr.upjv.calculator.calcul.Operator;
+import fr.upjv.calculator.computation.Operator;
 
 public enum Difficulty {
     SIMPLE("51MPL3", 2, 0, 10, Operator.ADD, Operator.SUBTRACT),

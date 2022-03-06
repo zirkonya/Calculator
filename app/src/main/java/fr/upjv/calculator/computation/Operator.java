@@ -1,4 +1,4 @@
-package fr.upjv.calculator.calcul;
+package fr.upjv.calculator.computation;
 
 public enum Operator {
     ADD('+', false),

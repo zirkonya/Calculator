@@ -1,10 +1,32 @@
 <resources>
     <string name="app_name" translatable="false">C4LCUL4T0R</string>
-    <string name="gamemode">G4M3M0D3</string>
-    <string name="difficulty">D1FF1CULTY</string>
-    <string name="start">5T4RT</string>
-    <string name="ranking">R4NK1NG</string>
+
     <string name="left_arrow" translatable="false"><![CDATA[>>]]></string>
     <string name="right_arrow" translatable="false"><![CDATA[<<]]></string>
+
+    <string name="seven" translatable="false">7</string>
+    <string name="height" translatable="false">8</string>
+    <string name="nine" translatable="false">9</string>
+    <string name="four" translatable="false">4</string>
+    <string name="five" translatable="false">5</string>
+    <string name="six" translatable="false">6</string>
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="zero" translatable="false">0</string>
+
+    <string name="signum" translatable="false">(-)</string>
+    <string name="ok" translatable="false">0K</string>
+
+    <string name="gameMode">G4M3M0D3</string>
+    <string name="difficulty">D1FF1CULTY</string>
+
+    <string name="start">5T4RT</string>
+    <string name="ranking">R4NK1NG</string>
     <string name="answer">4N5W3R</string>
+    <string name="clear">clear</string>
+
+    <string name="fail">WR0NG 4N5W3R</string>
+    <string name="press_start">PR355 5T4RT</string>
+    <string name="answerMissing">4N5W3R 15 M1551NG</string>
 </resources>

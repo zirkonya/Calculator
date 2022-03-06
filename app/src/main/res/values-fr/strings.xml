@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gamemode">M0D3 D3 J3U</string>
+    <string name="gameMode">M0D3 D3 J3U</string>
     <string name="difficulty">D1FF1CULT3</string>
-    <string name="start">D3M4RRER</string>
+    <string name="start">D3M4RR3R</string>
     <string name="ranking">CL4553M3NT</string>
     <string name="answer">R3P0N53</string>
+    <string name="clear">effacer</string>
+
+    <string name="fail">M4UV4153 R3P0N53</string>
+    <string name="press_start">4PPUY3R P0UR C0MM3NC3R</string>
+    <string name="answerMissing">R3P0N53 M4QU4NT3</string>
 </resources>
