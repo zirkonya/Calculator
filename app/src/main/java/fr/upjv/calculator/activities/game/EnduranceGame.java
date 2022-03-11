@@ -1,10 +1,15 @@
 package fr.upjv.calculator.activities.game;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import fr.upjv.calculator.activities.GameActivity;
 
 public class EnduranceGame extends GameActivity {
-    private int life = 3;
-    private int rightAnswer = 0;
+    private Timer timer;
+    private long time = 0;
+    private int life;
+    private int rightAnswer;
 
     @Override
     public void onSubmit(long answer) {
@@ -22,10 +27,19 @@ public class EnduranceGame extends GameActivity {
                 stop();
             rightAnswer = 0;
             vibrate(300);
+            failToast.show();
         }
         updateLife(life);
         clearAnswer();
         nextComputation();
+    }
+
+    @Override
+    public void onInit() {
+        life = 3;
+        rightAnswer = 0;
+        updateLife(life);
+        timer = new Timer();
     }
 
     @Override
@@ -36,6 +50,13 @@ public class EnduranceGame extends GameActivity {
     @Override
     public void onStartGame() {
         life = 3;
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                time += 1000;
+                updateClock(time);
+            }
+        }, 0, 1000);
         nextComputation();
     }
 

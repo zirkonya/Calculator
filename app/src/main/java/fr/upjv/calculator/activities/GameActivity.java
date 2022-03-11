@@ -66,6 +66,7 @@ public abstract class GameActivity extends AppCompatActivity {
         Button submitButton = findViewById(R.id.game_keyboardSubmitButton);
         Button signumButton = findViewById(R.id.game_keyboardSignumButton);
         FloatingActionButton clearFloatingActionButton = findViewById(R.id.game_clearComputeFloatingButton);
+        FloatingActionButton deleteFloatingActionButton = findViewById(R.id.game_deleteFloatingButton);
 
         Button keyboardButton0 = findViewById(R.id.game_keyboardButton0);
         Button keyboardButton1 = findViewById(R.id.game_keyboardButton1);
@@ -91,6 +92,7 @@ public abstract class GameActivity extends AppCompatActivity {
         signumButton.setOnClickListener(view -> changeSignum());
         submitButton.setOnClickListener(view -> submit());
         clearFloatingActionButton.setOnClickListener(view -> clearAnswer());
+        deleteFloatingActionButton.setOnClickListener(view -> deleteAnswer());
 
         lifeTextView = findViewById(R.id.game_lifeTextView);
         clockTextView = findViewById(R.id.game_clockTextView);
@@ -103,23 +105,37 @@ public abstract class GameActivity extends AppCompatActivity {
 
         gameModeTextView.setText(this.gameMode.getName());
         computation = Computation.generateComputation(this.difficulty);
+
+        onInit();
     }
 
+    /**
+     * met pause au jeu
+     */
     protected void pause() {
         running = false;
+        onPauseGame();
     }
 
+    /**
+     * démarre le jeu
+     */
     protected void start() {
         onStartGame();
     }
 
+    /**
+     * fin du jeu
+     */
     protected void stop() {
-        // TODO : action at end game
         running = false;
         onStopGame();
         lock();
     }
 
+    /**
+     * dévérouille le jeu
+     */
     public void unlock() {
         if (!running) {
             lock.setVisibility(View.GONE);
@@ -128,18 +144,25 @@ public abstract class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * vérouille le jeu
+     */
     public void lock() {
         pause();
         lock.setVisibility(View.VISIBLE);
     }
 
-    // BUTTON ACTIONS
-
+    public abstract void onInit();
     public abstract void onSubmit(long answer);
-    public abstract void onPauseGame();
     public abstract void onStartGame();
+    public abstract void onPauseGame();
     public abstract void onStopGame();
 
+    // BUTTON ACTIONS
+
+    /**
+     * valide la réponse si elle n'est pas null
+     */
     private void submit() {
         if (answer != null)
             onSubmit(answer);
@@ -147,6 +170,9 @@ public abstract class GameActivity extends AppCompatActivity {
             emptyAnswerToast.show();
     }
 
+    /**
+     * change le signe de la réponse
+     */
     private void changeSignum() {
         if (answer != null) {
             vibrate(100);
@@ -155,6 +181,10 @@ public abstract class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * ajoute un digit à la réponse
+     * @param digit
+     */
     private void addDigit(long digit) {
         vibrate(100);
         if (answer == null)
@@ -168,23 +198,46 @@ public abstract class GameActivity extends AppCompatActivity {
         updateAnswer();
     }
 
+    /**
+     * supprime entiérement la réponse
+     */
     public void clearAnswer() {
         vibrate(150);
         answer = null;
         updateAnswer();
     }
 
+    /**
+     * retire retire le dernier digit de la réponse
+     */
+    protected void deleteAnswer() {
+        if (answer == null) return;
+        if (Math.abs(answer) < 10) answer = null;
+        else answer = answer / 10;
+        updateAnswer();
+    }
+
     // TOOL
 
+    /**
+     * fait vibrer le téléphone pendant x millisecondes
+     * @param millis
+     */
     protected void vibrate(long millis) {
         vibrator.vibrate(VibrationEffect.createOneShot(millis, 1));
     }
 
+    /**
+     * affiche le calcul suivant
+     */
     protected void nextComputation() {
         computation = Computation.generateComputation(difficulty);
         updateComputation();
     }
 
+    /**
+     * retire le calcul
+     */
     protected void clearComputation() {
         computation = null;
         computationTextView.setText("");
@@ -192,6 +245,20 @@ public abstract class GameActivity extends AppCompatActivity {
 
     // UPDATE
 
+    /**
+     * affiche au format mm:ss les millisecondes passée en paramètre
+     * @param millis
+     */
+    public void updateClock(long millis) {
+        millis /= 1000;
+        int min = (int) (millis / 60);
+        int sec = (int) (millis - min * 60);
+        clockTextView.setText(String.format("%02d:%02d", min, sec));
+    }
+
+    /**
+     * affiche la réponse entrée par l'utilisateur
+     */
     public void updateAnswer() {
         if (answer == null)
             answerTextView.setText(R.string.answer);
@@ -199,6 +266,10 @@ public abstract class GameActivity extends AppCompatActivity {
             answerTextView.setText(answer.toString());
     }
 
+    /**
+     * affiche la vie passée en paramètre
+     * @param life
+     */
     public void updateLife(int life) {
         String hearts = "";
         for (int i = 0; i < life; i++)
@@ -206,7 +277,11 @@ public abstract class GameActivity extends AppCompatActivity {
         lifeTextView.setText(hearts);
     }
 
-    public void updateComputation() {
+    /**
+     * affiche le calcul actuel
+     */
+    private void updateComputation() {
         computationTextView.setText(computation.toString());
     }
+
 }
