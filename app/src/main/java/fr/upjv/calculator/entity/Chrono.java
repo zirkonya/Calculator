@@ -1,6 +1,6 @@
 package fr.upjv.calculator.entity;
 
-public class Chrono {
+public class Chrono extends BaseEntity {
 
     String Name;
     Integer Score;
@@ -13,12 +13,14 @@ public class Chrono {
         return Name;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Integer Score) {
         this.Score = Score;
     }
 
-    public void setName(Double resultat) {
+    public void setName(String Name) {
         this.Name = Name;
     }
+
+
 
 }
