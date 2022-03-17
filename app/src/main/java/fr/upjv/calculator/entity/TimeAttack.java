@@ -1,6 +1,6 @@
 package fr.upjv.calculator.entity;
 
-public class TimeAttack {
+public class TimeAttack extends BaseEntity {
 
     Integer Score;
     String Name;
@@ -17,7 +17,7 @@ public class TimeAttack {
         this.Score = Score;
     }
 
-    public void setName(Double resultat) {
+    public void setName(String Name) {
         this.Name = Name;
     }
 }

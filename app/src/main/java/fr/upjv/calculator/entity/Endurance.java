@@ -26,7 +26,7 @@ public class Endurance extends BaseEntity{
         this.Temps = temps;
     }
 
-    public void setName(Double resultat) {
+    public void setName(String Name) {
         this.Name = Name;
     }
 

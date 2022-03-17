@@ -29,9 +29,9 @@ public class ScoreChronoDao extends BaseDao<Chrono>{
         cursor.moveToFirst();
         Chrono chrono = new Chrono();
         Integer name = cursor.getColumnIndex(Name);
-        Chrono.setName(cursor.getString(name));
+        chrono.setName(cursor.getString(name));
         Integer score = cursor.getColumnIndex(Score);
-        Chrono.setScore(cursor.getInt(score));
+        chrono.setScore(cursor.getInt(score));
         return chrono;
     }
 }
