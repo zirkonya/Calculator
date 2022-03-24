@@ -1,5 +1,7 @@
 package fr.upjv.calculator.activities.game;
 
+import android.content.Intent;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -53,5 +55,10 @@ public class TimeAttackGame extends GameActivity {
     @Override
     public void onStopGame() {
 
+    }
+
+    @Override
+    public Intent onSaveResult() {
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package fr.upjv.calculator.activities.game;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 
 import fr.upjv.calculator.activities.GameActivity;
@@ -49,6 +50,11 @@ public class ChronoGame extends GameActivity {
     @Override
     public void onStopGame() {
 
+    }
+
+    @Override
+    public Intent onSaveResult() {
+        return null;
     }
 
 }

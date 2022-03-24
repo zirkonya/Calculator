@@ -1,5 +1,7 @@
 package fr.upjv.calculator.activities.game;
 
+import android.content.Intent;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -63,6 +65,11 @@ public class EnduranceGame extends GameActivity {
     @Override
     public void onStopGame() {
         clearComputation();
+    }
+
+    @Override
+    public Intent onSaveResult() {
+        return null;
     }
 
 }

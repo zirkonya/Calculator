@@ -1,9 +1,7 @@
 package fr.upjv.calculator.tools;
 
 import fr.upjv.calculator.activities.GameActivity;
-import fr.upjv.calculator.activities.game.ChronoGame;
-import fr.upjv.calculator.activities.game.EnduranceGame;
-import fr.upjv.calculator.activities.game.TimeAttackGame;
+import fr.upjv.calculator.activities.game.*;
 
 public enum GameMode {
     CHRONO("CHR0N0", ChronoGame.class),

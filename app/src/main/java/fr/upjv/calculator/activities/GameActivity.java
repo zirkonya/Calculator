@@ -1,26 +1,27 @@
 package fr.upjv.calculator.activities;
 
 import fr.upjv.calculator.R;
-import fr.upjv.calculator.computation.Computation;
-import fr.upjv.calculator.computation.Operator;
+import fr.upjv.calculator.computation.*;
 import fr.upjv.calculator.tools.Difficulty;
 import fr.upjv.calculator.tools.GameMode;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 public abstract class GameActivity extends AppCompatActivity {
     private static final char HEART = '♥';
@@ -28,10 +29,12 @@ public abstract class GameActivity extends AppCompatActivity {
 
     private Long answer;
     private boolean running;
+    private AlertDialog popup;
     private Vibrator vibrator;
     private GameMode gameMode;
     private ConstraintLayout lock;
     private Difficulty difficulty;
+    private TextInputEditText usernameInputText;
 
     protected Toast failToast;
     protected Toast emptyAnswerToast;
@@ -49,12 +52,31 @@ public abstract class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        GameActivity activity = this;
 
         int gameMode = getIntent().getIntExtra("gameMode", 0);
         int difficulty = getIntent().getIntExtra("difficulty", 0);
 
         this.gameMode = GameMode.values()[gameMode];
         this.difficulty = Difficulty.values()[difficulty];
+
+        AlertDialog.Builder popupBuilder = new AlertDialog.Builder(this);
+
+        popupBuilder.setView(findViewById(R.id.popup_nameInputText));
+
+        popupBuilder.setPositiveButton(R.string.submit, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                saveResult(usernameInputText);
+            }
+        });
+
+        popupBuilder.setNegativeButton(R.string.exit, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                activity.finishActivity(0);
+            }
+        });
 
         score = 0;
         running = false;
@@ -130,7 +152,8 @@ public abstract class GameActivity extends AppCompatActivity {
     protected void stop() {
         running = false;
         onStopGame();
-        lock();
+        popup.show();
+        //finishActivity(0);
     }
 
     /**
@@ -157,8 +180,17 @@ public abstract class GameActivity extends AppCompatActivity {
     public abstract void onStartGame();
     public abstract void onPauseGame();
     public abstract void onStopGame();
-
+    public abstract Intent onSaveResult();
     // BUTTON ACTIONS
+
+    /**
+     * enregistre les informations afin de l'envoyé dans la base de donnée
+     */
+    public void saveResult(TextInputEditText usernameInputText) {
+        Intent intent = onSaveResult();
+        startActivity(intent);
+        finishActivity(0);
+    }
 
     /**
      * valide la réponse si elle n'est pas null
