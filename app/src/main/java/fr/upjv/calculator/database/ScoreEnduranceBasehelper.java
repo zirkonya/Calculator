@@ -26,10 +26,4 @@ public class ScoreEnduranceBasehelper extends DataBaseHelper {
             return null;
         }
 
-    protected String RecupSql () {
-        String requete = "SELECT * FROM classementEndurance ORDER BY Score ASC LIMIT 10 ";
-
-        return requete;
-    }
-
 }

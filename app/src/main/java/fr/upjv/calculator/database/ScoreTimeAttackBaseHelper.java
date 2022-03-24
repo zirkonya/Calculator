@@ -25,10 +25,4 @@ public class ScoreTimeAttackBaseHelper extends DataBaseHelper {
             return null;
         }
 
-    protected String RecupSql () {
-        String requete = "SELECT * FROM classementTimeAttack ORDER BY Score ASC LIMIT 10 ";
-
-        return requete;
-    }
-
 }
