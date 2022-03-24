@@ -11,7 +11,7 @@ public class ScoreTimeAttackBaseHelper extends DataBaseHelper {
 
         @Override
         protected String getCreationSql() {
-            String score = "CREATE TABLE IF NOT EXISTS classementChrono (" +
+            String score = "CREATE TABLE IF NOT EXISTS classementTimeAttack (" +
                     "id  INTEGER PRIMARY KEY AUTOINCREMENT," +
                     ScoreTimeAttackDao.Name + " VARCHAR(255) NOT NULL," +
                     ScoreTimeAttackDao.Score + " INTEGER NOT NULL," +
@@ -24,5 +24,11 @@ public class ScoreTimeAttackBaseHelper extends DataBaseHelper {
         protected String getDeleteSql() {
             return null;
         }
+
+    protected String RecupSql () {
+        String requete = "SELECT * FROM classementTimeAttack ORDER BY Score ASC LIMIT 10 ";
+
+        return requete;
+    }
 
 }

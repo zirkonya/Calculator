@@ -34,4 +34,5 @@ public class ScoreChronoDao extends BaseDao<Chrono>{
         chrono.setScore(cursor.getInt(score));
         return chrono;
     }
+
 }

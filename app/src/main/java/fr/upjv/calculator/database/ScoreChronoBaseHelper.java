@@ -23,4 +23,11 @@ public class ScoreChronoBaseHelper extends DataBaseHelper{
     protected String getDeleteSql() {
         return null;
     }
+
+    protected String RecupSql () {
+        String requete = "SELECT * FROM classementChrono ORDER BY Score ASC LIMIT 10 ";
+
+      return requete;
+    }
+
 }

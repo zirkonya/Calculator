@@ -11,7 +11,7 @@ public class ScoreEnduranceBasehelper extends DataBaseHelper {
 
         @Override
         protected String getCreationSql() {
-            String score = "CREATE TABLE IF NOT EXISTS classementChrono (" +
+            String score = "CREATE TABLE IF NOT EXISTS classementEndurance (" +
                     "id  INTEGER PRIMARY KEY AUTOINCREMENT," +
                     ScoreEnduranceDao.Name + " VARCHAR(255) NOT NULL," +
                     ScoreEnduranceDao.Score + " INTEGER NOT NULL," +
@@ -25,5 +25,11 @@ public class ScoreEnduranceBasehelper extends DataBaseHelper {
         protected String getDeleteSql() {
             return null;
         }
+
+    protected String RecupSql () {
+        String requete = "SELECT * FROM classementEndurance ORDER BY Score ASC LIMIT 10 ";
+
+        return requete;
+    }
 
 }
