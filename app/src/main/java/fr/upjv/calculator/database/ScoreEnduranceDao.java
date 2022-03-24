@@ -2,13 +2,16 @@ package fr.upjv.calculator.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
+import fr.upjv.calculator.entity.Chrono;
 import fr.upjv.calculator.entity.Endurance;
 
 public class ScoreEnduranceDao extends BaseDao<Endurance>{
         static String Name = "Name";
         static String Score = "Score";
         static String Temps = "Temps";
+        private SQLiteDatabase bd;
 
         public ScoreEnduranceDao(DataBaseHelper helper) {
             super(helper);
@@ -38,5 +41,25 @@ public class ScoreEnduranceDao extends BaseDao<Endurance>{
             endurance.setTemps(cursor.getLong(temps));
             return endurance;
         }
+
+    protected Endurance[] RecupSql () {
+        Endurance[] endurance = new Endurance[10];
+        String requete = "SELECT * FROM classementEndurance ORDER BY Score ASC LIMIT 10 ";
+        Cursor curseur = bd.rawQuery(requete , null);
+        curseur.moveToLast();
+        for (int index=0; index<=9 ; index++) {
+            if (!curseur.isAfterLast()) {
+                endurance[index] = new Endurance();
+                Integer name = curseur.getColumnIndex(Name);
+                endurance[index].setName(curseur.getString(name));
+                Integer score = curseur.getColumnIndex(Score);
+                endurance[index].setScore(curseur.getInt(score));
+                Integer temps = curseur.getColumnIndex(Temps);
+                endurance[index].setTemps(curseur.getLong(temps));
+            }
+        }
+
+        return endurance;
+    }
 
 }
