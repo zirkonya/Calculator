@@ -34,7 +34,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textViewMedal3"
+                        android:id="@+id/textViewMedal1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🥇"
@@ -111,28 +111,28 @@
                     android:layout_height="match_parent" >
 
                     <TextView
-                        android:id="@+id/textView21"
+                        android:id="@+id/textViewMedal3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🥉"
-                        tools:textSize="30sp" />
+                        android:textSize="30sp" />
 
                     <TextView
-                        android:id="@+id/textView23"
+                        android:id="@+id/textViewName3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         android:textSize="26sp" />
 
                     <TextView
-                        android:id="@+id/textView22"
+                        android:id="@+id/textViewScore3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         android:textSize="26sp" />
 
                     <TextView
-                        android:id="@+id/textView20"
+                        android:id="@+id/textViewTemps3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
